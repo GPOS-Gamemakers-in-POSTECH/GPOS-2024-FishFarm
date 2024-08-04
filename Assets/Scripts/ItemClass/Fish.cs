@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -24,7 +25,23 @@ public class Fish
 
     Vector2 waterOxygen;//avgOxygen/varOxygen
 
+    float OxygenGrowthRateModifier(float currentOxygen)
+    {
+        return Mathf.Abs(currentOxygen - waterOxygen.x) / waterOxygen.y;
+    }
+    float DegreeGrowthRateModifier(float currentDegree)
+    {
+        return Mathf.Abs(currentDegree - waterDegree.x) /waterDegree.y;
+    }
+
     Vector2 growthTime;//hatchTime/grownTime
+
+    float baseGrowthRate;//base growth rate
+    float minGrowthRate;//minimum growth rate before the countdown starts ticking
+    int expirationDate;//date before fish dies
+
+    
+
 
     public void DebugPrintInfo()
     {
