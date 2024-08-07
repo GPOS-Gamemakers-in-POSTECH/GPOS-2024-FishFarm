@@ -36,11 +36,3 @@ public class FoodDispenser : NurseryParts
 {
 
 }
-
-
-
-
-public class PowerGenerator : NurseryParts
-{
-
-}
