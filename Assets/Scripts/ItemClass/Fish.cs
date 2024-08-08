@@ -28,26 +28,32 @@ public class GrowthRateData
 [System.Serializable]
 public class Fish 
 {
-    string fishName;
-    int fishTier;//1~3 for freshwater, 1~5 for ocean
-    FishType fishType;//river/ocean/indoor as 0/1/2
-    bool isUnlocked;//Is unlocked by player?
-    GrowthRateData waterOxygen;
-    GrowthRateData waterDegree;
-    Vector2 growthTime;//hatchTime/grownTime
+    public string fishName;
+    public int fishTier;//1~3 for freshwater, 1~5 for ocean
+    public FishType fishType;//river/ocean/indoor as 0/1/2
+    public bool isUnlocked;//Is unlocked by player?
+    public GrowthRateData waterOxygen;
+    public GrowthRateData waterDegree;
+    public Vector2 growthTime;//hatchTime/grownTime
 
-    float baseGrowthRate;//base growth rate
-    float minGrowthRate;//minimum growth rate before the countdown starts ticking
-    int expirationDate;//date before fish dies
-
-    
-
+    public float baseGrowthRate;//base growth rate
+    public float minGrowthRate;//minimum growth rate before the countdown starts ticking
+    public int expirationDate;//date before fish dies
 
     public void DebugPrintInfo()
     {
-        Debug.Log($"Fish Name: {fishName}, Fish Type: {fishType}, Fish Tier: {fishTier}");
-        Debug.Log($"Water Degree (avg/var): {waterDegree.x}/{waterDegree.y}");
-        Debug.Log($"Water Oxygen (avg/var): {waterOxygen.x}/{waterOxygen.y}");
-        Debug.Log($"Growth Time (hatch/grown): {growthTime.x}/{growthTime.y}");
+        Debug.Log($"Fish Name: {fishName}");
+        Debug.Log($"Fish Tier: {fishTier}");
+        Debug.Log($"Fish Type: {fishType}");
+        Debug.Log($"Is Unlocked: {isUnlocked}");
+
+        Debug.Log($"Water Oxygen - Avg: {waterOxygen.avg}, MinVar: {waterOxygen.minVar}, MaxVar: {waterOxygen.maxVar}, Base Growth Rate: {waterOxygen.baseGrowthRate}");
+        Debug.Log($"Water Degree - Avg: {waterDegree.avg}, MinVar: {waterDegree.minVar}, MaxVar: {waterDegree.maxVar}, Base Growth Rate: {waterDegree.baseGrowthRate}");
+
+        Debug.Log($"Growth Time - Hatch Time: {growthTime.x}, Grown Time: {growthTime.y}");
+
+        Debug.Log($"Base Growth Rate: {baseGrowthRate}");
+        Debug.Log($"Min Growth Rate: {minGrowthRate}");
+        Debug.Log($"Expiration Date: {expirationDate}");
     }
 }
